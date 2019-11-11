@@ -486,6 +486,10 @@ fieldset > fieldset {
     background-color: #5e72e4 !important;
 }
 
+#detail-bubble.in {
+	z-index: 99;
+}
+
 /* fix multiple table */
 
 table table,
@@ -2883,7 +2887,6 @@ header > .container > .pull-right > * {
 }
 
 .node-main-login > .main #maincontent {
-
     text-align: center;
 }
 
@@ -2976,14 +2979,15 @@ header > .container > .pull-right > * {
 .node-main-login > .main .cbi-value > * {
     display: inline-block !important;
 }
-.node-main-login > .main .cbi-value:first-child , .node-main-login > .main .cbi-button-reset{
-    display:none !important;
-}
 
+.node-main-login > .main .cbi-value:nth-child(1) .cbi-value-title{
+    display: none !important;
+}
 
 .node-main-login > .main .cbi-value.cbi-value-last .cbi-value-title{
     display: none !important;
 }
+
 .node-main-login > .main .cbi-value.cbi-value-last .cbi-input-text{
     box-shadow: 0 1px 3px rgba(50,50,93,.15), 0 1px 0 rgba(0,0,0,.02);
     transition: box-shadow .15s ease;
@@ -2992,19 +2996,41 @@ header > .container > .pull-right > * {
     padding-left:3em;
     margin: 0;
 }
-.node-main-login > .main .cbi-value.cbi-value-last .cbi-input-password{
+
+.node-main-login > .main .cbi-value:nth-child(1) .cbi-input-user, .node-main-login > .main .cbi-value.cbi-value-last .cbi-input-password{
     box-shadow: 0 1px 3px rgba(50,50,93,.15), 0 1px 0 rgba(0,0,0,.02);
     transition: box-shadow .15s ease;
     border-radius: .375rem;
     box-sizing:border-box;
     padding-left:3em;
-    margin: 0;
+    margin: 0.1em;
 }
 
-.node-main-login > .main .cbi-value.cbi-value-last .cbi-value-field{
+.node-main-login > .main .cbi-value .cbi-value-field{
     position:relative;
 	width: 20rem;
+	padding: 0.2em;
 }
+
+.node-main-login > .main .cbi-value:nth-child(1) .cbi-value-field:before{
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1.25;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "\e900";
+    color: #adb5bd;
+    font-size: 1.5rem;
+    position: absolute;
+    z-index: 100;
+    left: 10px;
+    top: 10px;
+}
+
 .node-main-login > .main .cbi-value.cbi-value-last .cbi-value-field:before{
     font-family: 'icomoon' !important;
     speak: none;
@@ -3012,7 +3038,7 @@ header > .container > .pull-right > * {
     font-weight: normal;
     font-variant: normal;
     text-transform: none;
-    line-height: 1;
+    line-height: 1.25;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     content: "\e901";
